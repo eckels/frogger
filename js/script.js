@@ -21,6 +21,8 @@ $(document).keydown(function(event) {
   }
 });
 
+var win = 0;
+
 function initialize() {
   drawBackground();
   drawPlayer();
@@ -90,8 +92,8 @@ drawLives();
     var canvas = document.getElementById('myCanvas');
     var context = canvas.getContext('2d');
       context.fillStyle = "white";
-      context.font = "50px 'Lobster', cursive";
-      context.fillText("You Win!", 250, 770);
+      context.font = "50px 'Press Start 2P', cursive";
+      context.fillText("You Win!!!", 170, 780);
       player.src = "img/win.jpg";
       winChecker = 1;
   }
@@ -113,8 +115,8 @@ drawLives();
     var canvas = document.getElementById('myCanvas');
     var context = canvas.getContext('2d');
       context.fillStyle = "white";
-      context.font = "50px 'Lobster', cursive";
-      context.fillText("You Win!", 250, 770);
+      context.font = "50px 'Press Start 2P', cursive";
+      context.fillText("You Win!!!", 170, 780);
       player.src = "img/win.jpg";
       winChecker = 1;
   }
@@ -131,8 +133,8 @@ function checkCollision() {
           var canvas = document.getElementById('myCanvas');
           var context = canvas.getContext('2d');
             context.fillStyle = "white";
-            context.font = "70px 'Lobster', cursive";
-            context.fillText("You got Hit, you Lose a life", 75, 760);
+            context.font = "25px 'Press Start 2P', cursive";
+            context.fillText("You got Hit, you Lose a life", 45, 760);
             player.src = "img/dead.jpg";
             liveCheck++;
           if (liveCheck === 1) {
@@ -151,8 +153,8 @@ function checkCollision2() {
           var canvas = document.getElementById('myCanvas');
           var context = canvas.getContext('2d');
             context.fillStyle = "white";
-            context.font = "70px 'Lobster', cursive";
-            context.fillText("You got Hit, you Lose a life", 75, 760);
+            context.font = "25px 'Press Start 2P', cursive";
+            context.fillText("You got Hit, you Lose a life", 45, 760);
             player.src = "img/dead.jpg";
             liveCheck++;
           if (liveCheck === 1) {
@@ -171,11 +173,12 @@ function checkWin() {
         var canvas = document.getElementById('myCanvas');
         var context = canvas.getContext('2d');
           context.fillStyle = "white";
-          context.font = "70px 'Lobster', cursive";
-          context.fillText("You Win", 150, 760);
-          console.log('run');
+          context.font = "40px 'Press Start 2P', cursive";
+          context.fillText("You Win!!!", 170, 780);
+          console.log('win');
           player.src = "img/win.jpg";
           winChecker = 1;
+          win++;
       }
   }
 }
@@ -223,9 +226,12 @@ function drawLives() {
   }
   if (lives === 0) {
     context.fillStyle = "white";
-    context.font = "70px 'Lobster', cursive";
-    context.fillText("YOU LOSE!!!", 190, 410);
+    context.font = "50px 'Press Start 2P', cursive";
+    context.fillText("YOU LOSE!!!", 120, 400);
   }
+    context.fillStyle = "white";
+    context.font = "30px 'Press Start 2P', cursive";
+    context.fillText("Wins: " + win, 550, 60);
 }
 
 function resetGame() {
