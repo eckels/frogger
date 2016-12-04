@@ -1,0 +1,19 @@
+#myCanvas {
+  border: solid black 1px;
+}
+
+body {
+  font-family: 'Lobster', cursive;
+}
+
+button {
+  width: 802px;
+  background-color: orange;
+  padding: 20px 0 20px 0;
+  font-size: 120%;
+  border: none;
+  cursor: pointer;
+  color: white;
+  border-radius: 4px;
+  outline: none;
+}
