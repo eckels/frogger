@@ -5,18 +5,22 @@ $(document).keydown(function(event) {
   var code = (event.keyCode ? event.keyCode : event.which);
   if (code === 65 && hitChecker === 0) {
     playerX -= 38;
+    player.src = "img/playerleft.png";
     initialize();
   }
   if (code === 68 && hitChecker === 0) {
     playerX += 38;
+    player.src = "img/playerright.png";
     initialize();
   }
   if (code === 87 && hitChecker === 0) {
     playerY -= 38;
+    player.src = "img/player.png";
     initialize();
   }
   if (code === 83 && hitChecker === 0) {
     playerY += 38;
+    player.src = "img/playerdown.png";
     initialize();
   }
 });
@@ -37,7 +41,7 @@ var liveCheck = 0;
 
 function drawPlayer() {
   var context = document.getElementById('myCanvas').getContext("2d");
-  context.drawImage(player, playerX, playerY, 70, 70);
+  context.drawImage(player, playerX, playerY, 60, 60);
 }
 
 function drawBackground() {
@@ -94,7 +98,7 @@ drawLives();
       context.fillStyle = "white";
       context.font = "50px 'Press Start 2P', cursive";
       context.fillText("You Win!!!", 170, 780);
-      player.src = "img/win.jpg";
+      player.src = "img/win.png";
       winChecker = 1;
   }
 }
@@ -117,7 +121,7 @@ drawLives();
       context.fillStyle = "white";
       context.font = "50px 'Press Start 2P', cursive";
       context.fillText("You Win!!!", 170, 780);
-      player.src = "img/win.jpg";
+      player.src = "img/win.png";
       winChecker = 1;
   }
 }
@@ -127,7 +131,7 @@ var hitChecker = 0;
 function checkCollision() {
   var context = document.getElementById('myCanvas').getContext("2d");
   for (i = 0; i<pictArray.length; i++) {
-    if (playerX + 70 > pictArray[i].left && playerX < pictArray[i].left + 70 && playerY + 70 > pictArray[i].top && playerY < pictArray[i].top + 70) {
+    if (playerX + 60 > pictArray[i].left && playerX < pictArray[i].left + 60 && playerY + 60 > pictArray[i].top && playerY < pictArray[i].top + 60) {
         hitChecker = 1;
         if (hitChecker = 1 && winChecker === 0) {
           var canvas = document.getElementById('myCanvas');
@@ -147,7 +151,7 @@ function checkCollision() {
 
 function checkCollision2() {
   for (i = 0; i<pictArray2.length; i++) {
-    if (playerX + 70 > pictArray2[i].left && playerX < pictArray2[i].left + 70 && playerY + 70 > pictArray2[i].top && playerY < pictArray2[i].top + 70) {
+    if (playerX + 60 > pictArray2[i].left && playerX < pictArray2[i].left + 60 && playerY + 60 > pictArray2[i].top && playerY < pictArray2[i].top + 60) {
         hitChecker = 1;
         if (hitChecker = 1 && winChecker === 0) {
           var canvas = document.getElementById('myCanvas');
@@ -167,7 +171,7 @@ function checkCollision2() {
 
   var winChecker = 0;
 function checkWin() {
-  if (playerX + 800 > 0 && playerX < 0 + 800 && playerY + 0 > 0 && playerY < 0 + 70) {
+  if (playerX + 800 > 0 && playerX < 0 + 800 && playerY + 0 > 0 && playerY < 0 + 60) {
       hitChecker = 1;
       if (hitChecker = 1) {
         var canvas = document.getElementById('myCanvas');
@@ -176,7 +180,7 @@ function checkWin() {
           context.font = "40px 'Press Start 2P', cursive";
           context.fillText("You Win!!!", 170, 780);
           console.log('win');
-          player.src = "img/win.jpg";
+          player.src = "img/win.png";
           winChecker = 1;
           win++;
       }
@@ -197,7 +201,7 @@ var pictArray = [];
 var pictArray2 = [];
 
 var player = new Image();
-player.src = "img/player.gif";
+player.src = "img/player.png";
 var playerX = 330;
 var playerY = 730;
 
@@ -240,7 +244,7 @@ function resetGame() {
     playerY = 730;
     winChecker = 0;
     hitChecker = 0;
-    player.src = "img/player.gif";
+    player.src = "img/player.png";
     liveCheck = 0;
   }
 }
